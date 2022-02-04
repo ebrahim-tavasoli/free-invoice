@@ -1,0 +1,8 @@
+invoice_creator/.idea
+db.sqlite3
+*.mo
+__pycache__
+*.pyc
+.env
+venv
+*.zip

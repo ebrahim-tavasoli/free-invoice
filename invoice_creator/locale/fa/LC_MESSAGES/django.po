@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-05 01:30+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: customer/admin.py:26 customer/admin.py:31
+msgid "Report"
+msgstr "گزارش"
+
+#: customer/models.py:7
+msgid "Firstname"
+msgstr "نام"
+
+#: customer/models.py:8
+msgid "Lastname"
+msgstr "نام خانوادگی"
+
+#: customer/models.py:9
+msgid "Company"
+msgstr "شرکت"
+
+#: customer/models.py:10
+#, fuzzy
+#| msgid "Invoice number"
+msgid "Phone number"
+msgstr "شماره فاکتور"
+
+#: customer/models.py:11
+msgid "Email"
+msgstr "ایمیل"
+
+#: customer/models.py:13
+#, fuzzy
+#| msgid "Invoice number"
+msgid "Mobile number"
+msgstr "شماره فاکتور"
+
+#: customer/models.py:19
+msgid "Address"
+msgstr "آدرس"
+
+#: customer/models.py:23 invoice/models.py:36
+#, fuzzy
+#| msgid "Customer name"
+msgid "Customer"
+msgstr "مشتری"
+
+#: customer/models.py:24
+#, fuzzy
+#| msgid "Customer name"
+msgid "Customers"
+msgstr "مشتری ها"
+
+#: invoice/admin.py:37 invoice/admin.py:42
+msgid "Send"
+msgstr "ارسال"
+
+#: invoice/admin.py:45 invoice/admin.py:50
+msgid "Download"
+msgstr "دانلود"
+
+#: invoice/apps.py:7 invoice/models.py:70
+msgid "Invoice"
+msgstr "فاکتور"
+
+#: invoice/models.py:23 invoice/models.py:45
+msgid "Invoice template"
+msgstr "پوسته فاکتور"
+
+#: invoice/models.py:24
+msgid "Invoice templates"
+msgstr "پوسته های فاکتور"
+
+#: invoice/models.py:31
+msgid "ID"
+msgstr "شناسه"
+
+#: invoice/models.py:38
+msgid "Invoice number"
+msgstr "شماره فاکتور"
+
+#: invoice/models.py:39
+msgid "Date"
+msgstr "تاریخ"
+
+#: invoice/models.py:47
+msgid "Discount"
+msgstr "تخفیف"
+
+#: invoice/models.py:49
+msgid "Discount type"
+msgstr "نوع تخفیف"
+
+#: invoice/models.py:52 invoice/models.py:61
+msgid "Percent"
+msgstr "درصد"
+
+#: invoice/models.py:53 invoice/models.py:62
+msgid "Fix"
+msgstr "ثابت"
+
+#: invoice/models.py:56
+msgid "Tax"
+msgstr "مالیات"
+
+#: invoice/models.py:58
+msgid "Tax type"
+msgstr "نوع مالیات"
+
+#: invoice/models.py:65
+msgid "Description"
+msgstr "توضیحات"
+
+#: invoice/models.py:66
+msgid "Paid time"
+msgstr "تاریخ پرداخت"
+
+#: invoice/models.py:67
+msgid "Send invoice time"
+msgstr "زمان ارسال فاکتور"
+
+#: invoice/models.py:71
+msgid "Invoices"
+msgstr "فاکتور ها"
+
+#: invoice/models.py:139
+msgid "Title"
+msgstr "عنوان"
+
+#: invoice/models.py:140
+msgid "Count"
+msgstr "تعداد"
+
+#: invoice/models.py:141
+msgid "Type"
+msgstr "نوع"
+
+#: invoice/models.py:142
+msgid "Price"
+msgstr "قیمت"
+
+#: invoice/models.py:145
+msgid "Invoice field"
+msgstr "کالا"
+
+#: invoice/models.py:146
+msgid "Invoice fields"
+msgstr "کالا ها"
+
+#: invoice_creator/settings.py:114
+msgid "English"
+msgstr "انگلیسی"
+
+#: invoice_creator/settings.py:115
+msgid "Persian"
+msgstr "فارسی"
+
+#: invoice_creator/urls.py:22 invoice_creator/urls.py:23
+msgid "Accounting"
+msgstr "حسابداری"
+
+#: payment/apps.py:7
+msgid "Payment"
+msgstr "پرداخت"
+
+#~ msgid "Mobile"
+#~ msgstr "موبایل"

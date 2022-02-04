@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>صورتحساب ارائه خدمات</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <style>
+        @font-face {
+            font-family: Shabnam;
+            src: url('https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam-Light.eot');
+            src: url('https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam-Light.eot?#iefix') format('embedded-opentype'),
+            url('https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam-Light.woff2') format('woff2'),
+            url('https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam-Light.woff') format('woff'),
+            url('https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam-Light.ttf') format('truetype');
+            font-weight: 200;
+        }
+
+        body {
+            font-family: Shabnam, sans-serif !important;
+            direction: rtl;
+            text-align: right !important;
+        {#background: #eee;#}
+        }
+
+        div.container {
+            border-radius: 15px;
+            background: white;
+        {#box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);#}
+        }
+
+        #invoice {
+            padding: 30px;
+        }
+
+        .invoice {
+            position: relative;
+            background-color: #FFF;
+            min-height: 680px;
+        }
+
+        .invoice-to {
+            text-align: right
+        }
+
+        .invoice-to .to {
+            margin-top: 0;
+            margin-bottom: 0
+        }
+
+        .invoice-details {
+            text-align: right;
+        }
+
+        .invoice-details .invoice-id {
+            margin-top: 0;
+        }
+
+        table thead th {
+            background-color: rgba(62, 210, 86, 0.2);
+            border-top: none;
+        }
+
+        table td {
+            text-align: justify;
+        }
+
+        main {
+            padding-bottom: 50px
+        }
+
+        main .thanks {
+            margin-top: -100px;
+            font-size: 2em;
+            margin-bottom: 50px
+        }
+
+        main .notices {
+            padding-right: 6px;
+            border-right: 6px solid #3ed256;
+            white-space: normal;
+        }
+
+        main .notices .notice {
+            font-size: .6em;
+            text-align: justify;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-bottom: 20px
+        }
+
+        table td, table th {
+            padding: 15px;
+            background: #eee;
+            border-bottom: 1px solid #fff
+        }
+
+        table th {
+            white-space: nowrap;
+            font-weight: 400;
+            font-size: 16px
+        }
+
+        table td h3 {
+            margin: 0;
+            font-weight: 400;
+            color: #3ed256;
+            font-size: 1.2em
+        }
+
+        table .qty, table .total, table .unit {
+            text-align: left;
+            font-size: 1.2em
+        }
+
+        table .no {
+            color: #fff;
+            font-size: 1.6em;
+            background: #3ed256
+        }
+
+        table .unit {
+            background: #ddd
+        }
+
+        table .total {
+            background: #3ed256;
+            color: #fff
+        }
+
+        table tbody tr:last-child td {
+            border: none
+        }
+
+        table tfoot td {
+            background: 100% 0;
+            border-bottom: none;
+            white-space: nowrap;
+            text-align: left;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-top: 1px solid #aaa
+        }
+
+        table tfoot tr:first-child td {
+            border-top: none
+        }
+
+        table tfoot tr:last-child td {
+            color: #3ed256;
+            font-size: 1.4em;
+            border-top: 1px solid #3ed256
+        }
+
+        table tr td.last-row {
+            background-color: rgba(62, 210, 86, 0.2);
+        }
+
+        table tfoot tr td:first-child {
+            border: none
+        }
+
+        footer {
+            width: 100%;
+            text-align: center;
+            color: #777;
+            border-top: 1px solid #aaa;
+            padding: 8px 0
+        }
+
+        div.notice {
+            word-break: break-all;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="col">
+        <h1 class="mt-4" style="font-weight: bolder">
+            <em>فاکتور فروش</em>
+        </h1>
+    </div>
+    <div class="col">
+        <div class="float-left">
+            <img style="width: 200px" src="" alt=""/>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="row mb-2">
+    <div class="col invoice-to">
+        <h5>{{ invoice.customer.fullname }}</h5>
+        <h5>{{ invoice.mobile|default:invoice.customer.email }}</h5>
+    </div>
+    <div class="col invoice-details">
+        <div class="float-left">
+            <h5>شماره
+                فاکتور: {{ invoice.invoice_number|default:invoice.id }}</h5>
+            <h5>تاریخ فاکتور: {{ invoice.date|date:"Y/m/d" }} </h5>
+        </div>
+    </div>
+</div>
+<table class="invoice" border="0" cellspacing="0" cellpadding="0">
+    <thead class="thead">
+    <tr>
+        <th class="text-center">ردیف</th>
+        <th class="text-center">شرح خدمات</th>
+        <th class="text-center">تعداد</th>
+        <th class="text-center">قیمت واحد</th>
+        <th class="text-center">قیمت کل</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in invoice.invoicefields_set.all %}
+        <tr>
+            <td class="no text-center">{{ forloop.counter }}</td>
+            <td class="item">
+                {{ item.title }}
+            </td>
+            <td class="unit text-center">
+                {{ item.count }} {{ item.type|default_if_none:"" }}
+            </td>
+            <td class="qty text-center">
+                {{ item.cost }} تومان
+            </td>
+            <td class="total text-center">{{ item.sub_total }} تومان</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td rowspan="4" colspan="3">
+            <div class="notices text-right">
+                <h6 class="font-weight-bold">توضیحات: </h6>
+                <div class="notice mt-2">
+                    {{ invoice.description|default:"" }}
+                </div>
+            </div>
+        </td>
+        <td class="text-right">جمع کل</td>
+        <td class="text-center">{{ invoice.total_fields }} تومان</td>
+    </tr>
+    <tr>
+        <td class="text-right">تخفیف</td>
+        <td class="text-center">{{ invoice.total_discount }} تومان</td>
+    </tr>
+    <tr>
+        <td class="text-right">مالیات بر ارزش افزوده</td>
+        <td class="text-center">{{ invoice.total_tax }} تومان</td>
+    </tr>
+    <tr>
+        <td class="last-row text-right">مبلغ نهایی</td>
+        <td class="last-row text-center">{{ invoice.total }} تومان</td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>
