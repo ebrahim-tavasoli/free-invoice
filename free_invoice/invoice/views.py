@@ -1,7 +1,7 @@
 import io
 
 from django.urls import reverse
-from pdfkit import from_url as convert_to_pdf
+# from pdfkit import from_url as convert_to_pdf
 
 from django.http import HttpResponse, HttpResponseRedirect, FileResponse
 from django.template.loader import render_to_string
@@ -50,20 +50,20 @@ class PrintPreviewInvoice(View):
         )
 
 
-class GetInvoice(View):
-    """
-    Return an invoice by id as PDF form.
-    Support http get method only
-    """
-
-    def get(self, request, id=None):
-        get_object_or_404(models.Invoice, id=id)
-        x = request.build_absolute_uri(reverse('invoice:Print_preview', args=(id, )))
-        pdf = convert_to_pdf(x, options={'orientation': 'Landscape'})
-        return HttpResponse(
-            pdf,
-            content_type='application/pdf'
-        )
+# class GetInvoice(View):
+#     """
+#     Return an invoice by id as PDF form.
+#     Support http get method only
+#     """
+#
+#     def get(self, request, id=None):
+#         get_object_or_404(models.Invoice, id=id)
+#         x = request.build_absolute_uri(reverse('invoice:Print_preview', args=(id, )))
+#         pdf = convert_to_pdf(x, options={'orientation': 'Landscape'})
+#         return HttpResponse(
+#             pdf,
+#             content_type='application/pdf'
+#         )
 
 
 class SendInvoice(View):
