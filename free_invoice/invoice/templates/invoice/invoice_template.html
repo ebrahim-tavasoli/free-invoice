@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>صورتحساب ارائه خدمات</title>
+    <link href="{% static 'invoice/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
+    <script src="{% static 'invoice/js/bootstrap.min.js' %}"></script>
+    <style>
+        @page {
+            size: A3 landscape;
+            margin: unset; /* change the margins as you want them to be. */
+        }
+
+        @font-face {
+            font-family: shabnam;
+            src: url("{% static 'invoice/font/Shabnam.woff2' %}") format('woff2');
+            font-weight: normal;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .company-logo {
+                text-align: center !important;
+            }
+
+            .company-name {
+                text-align: center !important;
+            }
+        }
+
+        body {
+            font-family: shabnam, sans-serif !important;
+            direction: rtl;
+            text-align: right !important;
+            color: #444444;
+            background: #fff;
+        }
+
+        .company-logo {
+            text-align: left;
+        }
+
+        .company-name {
+            margin-top: auto;
+            margin-bottom: auto;
+            text-align: right;
+        }
+
+        .invoice-box {
+            padding: 3rem;
+            border-radius: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        table > th, table > td {
+            text-align: center;
+        }
+
+        .comment {
+            text-align: right !important;
+            vertical-align: top !important;
+        }
+    </style>
+    <script>
+        window.print()
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row invoice-box text-center">
+        <header dir="ltr">
+            <h1 class="fw-bolder">فاکتور فروش</h1>
+            <div class="row">
+                <div class="col-md-6 company-logo">
+                    {% if invoice.company.logo %}
+                        <img style="width: 150px" src="{{ invoice.company.logo.url }}">
+                    {% endif %}
+                </div>
+                <div class="col-md-6 company-name" dir="rtl">
+                    {% if invoice.company.name %}
+                        <h3>
+                            {{ invoice.company.name }}
+                        </h3>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+        <hr>
+        <main>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <p style="text-align: right; font-weight: bold">{{ invoice.customer.company|default:'' }}</p>
+                    <p style="text-align: right; font-weight: bold">{{ invoice.customer|default:'' }}</p>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-2"></div>
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="float-start text-start">
+                        <p><span style="font-weight: bold">شماره:</span> {{ invoice.invoice_number|default:invoice.id }}
+                        </p>
+                        <p><span style="font-weight: bold">تاریخ:</span> {{ invoice.date|date:"Y/m/d" }}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <table class="table table-bordered">
+                    <colgroup>
+                        <col span="1" style="width: 5%;">
+                        <col span="1" style="width: 50%;">
+                        <col span="1" style="width: 15%;">
+                        <col span="1" style="width: 15%;">
+                        <col span="1" style="width: 15%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th>ردیف</th>
+                        <th>شرح خدمات</th>
+                        <th>تعداد</th>
+                        <th>قیمت واحد ({{ invoice.currency }})</th>
+                        <th>قیمت کل ({{ invoice.currency }})</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in invoice.invoicefields_set.all %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td class="text-start">
+                                {{ item.title }}
+                            </td>
+                            <td>
+                                {{ item.count }} {{ item.type|default_if_none:"" }}
+                            </td>
+                            <td>
+                                {{ item.cost }}
+                            </td>
+                            <td>{{ item.sub_total }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td class="comment" rowspan="4" colspan="3">
+                            <span style="font-weight: bolder">توضیحات: </span>
+                            {{ invoice.description|default:"" }}
+                        </td>
+                        <th class="text-end">جمع کل:</th>
+                        <td>{{ invoice.total_fields }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-end">تخفیف:</th>
+                        <td>{{ invoice.total_discount }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-end">مالیات بر ارزش افزوده:</th>
+                        <td>{{ invoice.total_tax }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-end">مبلغ نهایی:</th>
+                        <td>{{ invoice.total }} {{ invoice.currency.name }}</td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="p-5">
+                <p class="m-5 mt-0 d-inline float-end">امضا فروشنده</p>
+                <p class="m-5 mt-0 d-inline float-start">امضا خریدار</p>
+                {% if invoice.company.sign %}
+                    <img class="d-inline float-end" src="{{ invoice.company.sign.url }}">
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
